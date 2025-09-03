@@ -1,3 +1,5 @@
+#denhär koden plussar med 5#
+
 print("welcome to the guessing game!")
 print("let's play, have a guess what the number is!")
 
@@ -6,3 +8,15 @@ def fav ():
     print("your guess: " + str(num + 5))
 
 fav()
+
+
+#denhär ger svaret direkt#
+
+print("welcome to the guessing game!")
+print("let's play, have a guess what the number is!")
+
+def fav ():
+    num = int(input("enter a and guess: "))
+    print("your number is: " + str(1 + 4))
+
+fav() 
