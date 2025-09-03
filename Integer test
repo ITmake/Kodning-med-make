@@ -1,0 +1,6 @@
+def fav ():
+    num = int(input("enter a number: "))
+    print("your favorite number is: " + str(num + 5))
+
+fav()
+Enter a number: 12
