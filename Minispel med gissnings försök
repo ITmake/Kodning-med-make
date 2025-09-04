@@ -11,3 +11,5 @@ def fav():
             print("wrong guess, try again")
 
 fav()
+
+#koden kommer skriva ut hur många gissningar det tog att gissa talet#
