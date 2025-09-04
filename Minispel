@@ -1,8 +1,11 @@
-print("welcome to the guessing game!")
-print("let's play, have a guess what the number is!")
-
-def fav ():
-    num = int(input("enter a and guess: "))
-    print("your guess: " + str(5))
+def fav():
+    while True:
+        num = int(input("Enter a guess: "))
+        if num == 5:
+            print("Correct! You guessed the number ")
+            break
+        else:
+            print("Wrong guess. Try again!")
 
 fav()
+
