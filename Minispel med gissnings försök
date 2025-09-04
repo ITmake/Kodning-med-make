@@ -1,12 +1,12 @@
 def fav():
-    attempts = 0
+    attempts = 0 #räknar gissningarna
     while True:
         num = int(input("enter a guess: "))
         attempts += 1
         if num == 5:
             print("you guessed it right")
             print(f"It took you {attempts} attempts.")
-            break
+            break #avbryter
         else:
             print("wrong guess, try again")
 
