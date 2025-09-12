@@ -2,7 +2,7 @@ import random
 
 try:
     # Get player names
-    antal_spelare = int(input("Hur många spelare vill du ha? "))
+    antal_spelare = int(input("Hur många spelare vill du ha? ")) #alltså väljer huyr många spelare du vill ha i spelet
     spelare = []
     for i in range(antal_spelare):
         namn = input(f"Ange namn för spelare {i+1}: ").strip()
@@ -70,4 +70,5 @@ try:
             print("Tack för att ni spelade!")
             break
 except KeyboardInterrupt:
+    print("\nSpelet avslutat. Tack för att ni spelade!")
     print("\nSpelet avslutat. Tack för att ni spelade!")
