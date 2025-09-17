@@ -71,4 +71,3 @@ try:
             break
 except KeyboardInterrupt:
     print("\nSpelet avslutat. Tack för att ni spelade!")
-    print("\nSpelet avslutat. Tack för att ni spelade!")
