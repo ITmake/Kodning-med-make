@@ -1,0 +1,38 @@
+#koden kommer blinka#
+
+import time
+import Adafruit_BBIO.GPIO as GPIO
+
+# Map each switch to its GPIO pin
+relay_pins = {
+    "SW1": "P8_7",
+    "SW2": "P8_8",
+    "SW3": "P8_9",
+    "SW4": "P8_10"
+}
+
+# Set up GPIO pins
+for pin in relay_pins.values():
+    GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, GPIO.HIGH)  # Start OFF (relay inactive)
+
+try:
+    while True:
+        # Turn all relays ON (active LOW)
+        for pin in relay_pins.values():
+            GPIO.output(pin, GPIO.LOW)
+        print("Relays ON")
+        time.sleep(1)
+
+        # Turn all relays OFF
+        for pin in relay_pins.values():
+            GPIO.output(pin, GPIO.HIGH)
+        print("Relays OFF")
+        time.sleep(1)
+
+except KeyboardInterrupt:
+    # Graceful exit: turn off all relays
+    for pin in relay_pins.values():
+        GPIO.output(pin, GPIO.HIGH)
+    GPIO.cleanup()
+    print("Program stopped, relays OFF")
