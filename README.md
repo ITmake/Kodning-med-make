@@ -1,4 +1,4 @@
-# Kodning med make – repo fix
+# Kodning med make
 
 Detta repo innehåller små Python-projekt och exempel skrivna under kursmoment i programmering. Strukturen var tidigare svår att navigera på grund av mellanslag i filnamn och avsaknad av dokumentation. Den har nu städats upp så att varje kategori ligger i en tydligt namngiven mapp med snake_case-filer.
 
