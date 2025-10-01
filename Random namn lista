@@ -1,6 +1,0 @@
-def halsa_pa_namn(namn_lista):
-	for namn in namn_lista:
-		print(f"Hej ! {namn}")
-
-namn_lista = ["johan", "jörgen", "make"]
-halsa_pa_namn(namn_lista)
