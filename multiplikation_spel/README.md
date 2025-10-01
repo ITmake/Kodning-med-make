@@ -8,5 +8,5 @@ En samling multiplikationsövningar i terminalen.
 | `multiplikation_med_tidsgrans.py` | Svara på så många frågor som möjligt inom en tidsgräns. |
 | `multiplikation_med_traning_spel_paus.py` | Meny med både träningsläge och tidsläge. |
 
-Kör spel med `python multiplication_games/<filnamn>.py`.
+Kör spel med `python multiplikation_spel/<filnamn>.py`.
 
