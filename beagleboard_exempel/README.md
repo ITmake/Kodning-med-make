@@ -38,4 +38,3 @@ while True:
 ```
 
 Kör skriptet med `python import_smbus2.py` när hårdvaran är ansluten.
-
