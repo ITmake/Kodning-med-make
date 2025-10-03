@@ -1,0 +1,6 @@
+sudo apt update
+sudo apt install python3-smbus python3-pip python3-bme280 i2c-tools
+
+pip3 install smbus2
+
+python3 -c "import smbus2; print(smbus2.__version__)"
