@@ -1,0 +1,145 @@
+🐍 Python3 – Useful Codes & what they do
+
+- print() → displays output to the terminal.
+- input() → lets the user type something in and stores it.
+- import → pulls in external libraries (like time, os, gpiod).
+- time.sleep(x) → pauses program for x seconds.
+- if / else → decision-making (run different ode depending on conditions).
+- for loop → repeats code a set number of times.
+- while loop → repeats code until a condition is false (or forever if True).
+- def function(): → reusable block of code.
+- class → blueprint for creating objects with data + functions.
+- try / except → error handling (prevents crashes).
+- with open("file") as f: → open files safely (for reading/writing).
+- pip install package (run in terminal) → downloads and installs external Python libraries.
+- venv (virtual environment) → isolates project dependencies.
+- __main__ check (if __name__ == "__main__":) → makes scripts runnable directly.
+
+🏗️ Core Concepts
+
+- print() → outputs text/data to the console.
+- input() → asks user for input and returns it as a string.
+- type() → tells you the data type of a value (int, str, list, etc.).
+- len() → returns length of a sequence (string, list, etc.).
+- id() → gives the memory reference (useful for debugging).
+
+🔄 Control Flow
+
+- if / elif / else → branching logic (choose actions based on conditions).
+- for loop → repeats over a sequence (list, string, range).
+- while loop → repeats as long as a condition is True.
+- break → exits a loop early.
+- continue → skips the rest of the loop iteration and moves on.
+
+🛠️ Functions & Scope
+- def → defines a reusable function.
+- return → sends a value back from a function.
+- lambda → quick, one-line anonymous functions.
+- global / nonlocal → lets functions modify variables outside their own scope.
+
+⏳ Time & Date
+
+- time.sleep(x) → pause program for x seconds.
+- time.time() → current timestamp (seconds since 1970).
+- datetime.now() → current date and time.
+- strftime() → formats date/time as text.
+
+🐍 Python3 – Example Codes
+
+1. Hello
+name = input("What is your name? ")
+print(f"Hello, {name}!")
+
+2.Lists & Loops
+fruits = ["apple", "banana", "cherry"]
+
+for fruit in fruits:
+    print(f"I like {fruit}")
+
+-------------------------------------------------------
+
+🦴 BeagleBone Green (BBG)
+
+🔧 System / Maintenance – Useful Commands & What They Do
+
+- sudo → runs a command with administrator (root) privileges. 
+  Needed for changing system files, installing software, or accessing GPIO hardware.
+- sudo apt update → refreshes the package list (knows what’s available to install).
+- sudo apt upgrade → installs the latest updates for already-installed software.
+- sudo reboot → restarts the BeagleBone safely.
+- sudo shutdown now → powers off the BeagleBone.
+- ls /dev/gpiochip* → shows available GPIO controllers.
+- gpioinfo → prints all GPIO pins, their numbers, and status.
+
+📥 Installing / Downloading
+
+- -wget URL → downloads a file from the internet.
+- curl -O URL → alternative way to download files.
+- scp file user@beaglebone:/path → copies a file from your computer to the BeagleBone via SSH.
+- git clone URL → downloads a full project/repo from GitHub.
+
+🔌 GPIO / Hardware
+
+- config-pin P9_15 gpio → configures a pin mode (GPIO, PWM, etc.).
+- gpiod (Python library) → lets you control GPIO pins in Python3.
+- line.request(..., DIR_OUT) → configures a GPIO pin as output.
+- line.set_value(1) → sets pin HIGH (3.3V or 5V, depending).
+- line.set_value(0) → sets pin LOW (0V).
+
+📀 Reset / Recovery
+
+- Power button hold (10s) → force shutdown.
+- Hold BOOT button + power on → boot from microSD card (used for reflashing OS).
+- eMMC flash image (from beagleboard.org) → restores BeagleBone to factory OS.
+
+🛡️ Safety / Usage
+
+- Always use sudo for hardware access (GPIO, I²C, SPI).
+- BBG pins use 3.3V logic, except the 5V/VCC pins → don’t connect higher voltages directly.
+- When using relays/motors → use external power supplies and isolation.
+- For AC mains → only use properly rated relay modules.
+
+🦴 BeagleBone Green – Example Codes
+
+1.Blink Relay (GPIO)
+
+import gpiod, time
+
+chip = gpiod.Chip("gpiochip0")
+line = chip.get_line(28)  # GPIO48 → P9_15
+line.request(consumer="relay", type=gpiod.LINE_REQ_DIR_OUT)
+
+try:
+    while True:
+        line.set_value(1)  # Relay ON
+        time.sleep(1)
+        line.set_value(0)  # Relay OFF
+        time.sleep(1)
+except KeyboardInterrupt:
+    line.set_value(0)
+    line.release()
+    chip.close()
+
+2.I²C Sensor Example (e.g., temperature sensor)
+
+import smbus, time
+
+bus = smbus.SMBus(2)   # I²C bus 2 on BBG
+address = 0x48         # Example sensor address
+
+while True:
+    temp = bus.read_byte(address)
+    print(f"Temperature: {temp}°C")
+    time.sleep(1)
+
+----------------------------------------------------
+
+🖥️ Visual Studio Code – Useful Things & What They Do
+
+🛠️ Basics
+
+- Editor → where you write code (supports syntax highlighting, autocomplete).
+- Sidebar (Activity Bar) → navigation icons for Explorer, Search, Git, Debug, Extensions.
+- Command Palette (Ctrl+Shift+P / Cmd+Shift+P) → quick access to all commands in VS Code.
+- Extensions (Ctrl+Shift+X) → install add-ons (like Python, Docker, GitHub Copilot).
+- Integrated Terminal (`Ctrl+``) → opens a shell inside VS Code (bash, PowerShell, zsh, etc.).
